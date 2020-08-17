@@ -16,7 +16,7 @@ function App() {
         <PrivateRoute exact path = '/colors'><BubblePage/></PrivateRoute>
        
         <PrivateRoute exact path = '/list'><ColorList/></PrivateRoute>
-       <Route exact path =" /list "> <Bubbles/> </Route>
+      
 
 
         {/* 

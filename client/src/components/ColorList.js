@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { axiosAuth } from "./utils/axiosAuth";
+import { Route, useHistory} from 'react-router-dom' 
 
 const initialColor = {
   color: "",
@@ -34,12 +35,24 @@ const ColorList = ({ colors, updateColors, setDependency }) => {
     // where is is saved right now?
   };
 
+  // const deleteColor = color => {
+  //       axiosAuth()
+  //         .delete(`/api/colors/${color.id}`)
+  //         .then(() => {
+  //           updateColors();
+  //         })
+  //         .catch(error => {
+  //           console.log('Error Deleting', error);
+  //         });
+
   const deleteColor = color => {
     axiosAuth()
-    .delete(`colors/${colorToEdit.id}`, color )
+    .delete(`colors/${color.id}`, color)
     .then(res => {
-      console.log(res.data)
-      updateColors(color.filter((item) => item.id !== colorToEdit.id))
+      window.location.reload(true);
+      // console.log(res.data)
+      // updateColors(color.filter((item) => item.id !== colorToEdit.id))
+      
     })
     // make a delete request to delete this color
   };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { axiosAuth } from "./utils/axiosAuth";
 import { Route, useHistory} from 'react-router-dom' 
-
+import { Link } from 'react-router-dom'
 const initialColor = {
   color: "",
   code: { hex: "" }
@@ -60,6 +60,9 @@ const ColorList = ({ colors, updateColors, setDependency }) => {
   return (
     <div className="colors-wrap">
       <p>colors</p>
+      <Link to ='/add'>
+        <button>Add Color</button>
+        </Link>
       <ul>
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
